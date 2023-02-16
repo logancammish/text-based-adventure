@@ -21,4 +21,5 @@ def choose():
     except: 
         print("Invalid value, try again...")
         return choose()
-found = choose()
+choice = choose()
+exec(open("choices/" + choice + ".py").read())

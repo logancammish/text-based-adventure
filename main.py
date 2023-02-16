@@ -13,14 +13,12 @@ for i in options:
     print(i + ": " + options[i])
 print("\n")
 
-found = -1
 def choose():
     answer = input("Please enter your answer now (A/B/C):").capitalize()
     try: 
-      print("Get ready to " + options[answer].lower() + "!")
+        print("Get ready to " + options[answer].lower() + "!")
+        return answer 
     except: 
-       found = 1
-
-if choose() == 1:
-    print("Invalid value, try again")
-    choose()
+        print("Invalid value, try again...")
+        return choose()
+found = choose()

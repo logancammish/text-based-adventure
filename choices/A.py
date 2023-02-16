@@ -3,8 +3,17 @@ import time
 import random
 sleep = time.sleep 
 
+print("Welcome to the wonderful forest of FOREST_NAME")
+print("FOREST_NAME includes many great things, inlcuding some of the most wonderful wildlife!\n")
+
+def die():
+    print("\nYOU DIED\n")
+    sleep(.1)
+    print("YOUR ADVENTURE HAS ENDED.")
+    exit()
+
 def choose(text, options):
-    answer = input(text)
+    answer = input(text).upper()
     try: 
         print("You chose: " + options[answer].lower())
         return answer 
@@ -12,7 +21,7 @@ def choose(text, options):
         print("Invalid value, try again...")
         return choose(text, options)
 
-def battle(enemy_health, hero_health):
+def battle():
     won = {0, False}
     random_chance = random.randint(1,6)
     choice = choose("Choose to either RUN or FIGHT: ", {
@@ -24,14 +33,18 @@ def battle(enemy_health, hero_health):
             won = {1, True}
             print("was successful!\n")
         else: 
-            print("was not successful")
+            print("was not successful, you died")
+            die()
+            
     if choice == "FIGHT":
         if random_chance > 2: 
             won = {2, True}
-            print("was successful\n")
+            print("were successful\n")
         else:
-            print("was not successful")
+            print("were not successful, you died") 
+            die()
+            
     return won
 
-print("Welcome to the wonderful forest of FOREST_NAME\n")
-print("FOREST_NAME includes many great things, inlcuding some of the most")
+print("Oh no! You encountered a wild bear!")
+battle()

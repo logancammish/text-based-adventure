@@ -14,9 +14,9 @@ for i in options:
 print("\n")
 
 def choose():
-    answer = input("Please enter your answer now (A/B/C):").capitalize()
+    answer = input("Please enter your answer now (A/B/C): ").capitalize()
     try: 
-        print("Get ready to " + options[answer].lower() + "!")
+        print("Get ready to " + options[answer].lower() + "!\n")
         return answer 
     except: 
         print("Invalid value, try again...")
